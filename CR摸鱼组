@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>海洋科技公司官网</title>
+    <style>
+        :root {
+            --primary: #1E90FF;
+            --bg: linear-gradient(#87CEEB, #e0f7fa);
+            --card-bg: linear-gradient(145deg, #ffffff 85%, #e3f2fd 100%);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: var(--bg);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            font-family: '微软雅黑', sans-serif;
+        }
+
+        /* 动态小鱼 */
+        .fish {
+            position: absolute;
+            width: 120px;
+            top: 30%;
+            animation: swim 18s linear infinite;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+            z-index: 0;
+        }
+        @keyframes swim {
+            0% { left: -10%; transform: scaleX(1) }
+            50% { left: 110%; transform: scaleX(1) }
+            51% { transform: scaleX(-1) }
+            100% { left: -10%; transform: scaleX(-1) }
+        }
+
+        /* 头部区域 */
+        .header {
+            height: 10vh;
+            background: rgba(255,255,255,0.95);
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+        .logo {
+            height: 8vh;
+            margin-right: 20px;
+        }
+        .brand {
+            font: bold 1.8em/1.2 '微软雅黑';
+            color: var(--primary);
+        }
+        .slogan {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        /* 团队成员 */
+        .team {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            padding: 40px 5%;
+        }
+        .member {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        .member:hover {
+            transform: translateY(-5px);
+        }
+        .member img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary);
+        }
+        .profile {
+            padding: 20px;
+        }
+        .position {
+            color: var(--primary);
+            font-size: 0.9em;
+            margin: 10px 0;
+        }
+        .expertise {
+            list-style: none;
+            padding-left: 1.2em;
+            font-size: 0.9em;
+        }
+        .expertise li {
+            margin: 8px 0;
+        }
+        .expertise li::before {
+            content: "🌊";
+            margin-right: 8px;
+        }
+        .social {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+        }
+        .social img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.3s;
+        }
+        .social img:hover {
+            transform: scale(1.2);
+        }
+
+        /* 新闻动态 */
+        .news {
+            background: rgba(255,255,255,0.95);
+            margin: 0 5% 40px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+        .news h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        .news li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            list-style: none;
+        }
+
+        /* 页脚 */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .team {
+                grid-template-columns: 1fr;
+            }
+            .member img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    < img src="fish.gif" class="fish" alt="游动的小鱼">
+
+    <header class="header">
+        < img src="logo.png" class="logo" alt="公司Logo">
+        <div>
+            <h1 class="brand">海洋科技</h1>
+            <p class="slogan">智慧守护蔚蓝星球</p >
+        </div>
+    </header>
+
+    <main>
+        <!-- 团队成员 -->
+        <div class="team">
+            <div class="member">
+                < img src="member1.jpg" alt="张海洋 博士" loading="lazy">
+                <div class="profile">
+                    <h3>张海洋 博士</h3>
+                    <p class="position">首席海洋生物学家</p >
+                    <ul class="expertise">
+                        <li>15年珊瑚礁保护经验</li>
+                        <li>联合国海洋顾问</li>
+                        <li>发表SCI论文32篇</li>
+                    </ul>
+                    <div class="social">
+                        < img src="email.svg" alt="邮箱">
+                        < img src="linkedin.svg" alt="领英">
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                < img src="member2.jpg" alt="李蔚蓝 教授" loading="lazy">
+                <div class="profile">
+                    <h3>李蔚蓝 教授</h3>
+                    <p class="position">海洋环境工程总监</p >
+                    <ul class="expertise">
+                        <li>海洋污染治理专家</li>
+                        <li>国家科技进步奖得主</li>
+                        <li>专利技术12项</li>
+                    </ul>
+                    <div class="social">
+                        < img src="email.svg" alt="邮箱">
+                        < img src="researchgate.svg" alt="学术主页">
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                < img src="member3.jpg" alt="王潮汐" loading="lazy">
+                <div class="profile">
+                    <h3>王潮汐</h3>
+                    <p class="position">水下勘探负责人</p >
+                    <ul class="expertise">
+                        <li>PADI认证潜水教练</li>
+                        <li>深海探测记录保持者</li>
+                        <li>救援行动300+次</li>
+                    </ul>
+                    <div class="social">
+                        < img src="email.svg" alt="邮箱">
+                        < img src="youtube.svg" alt="视频频道">
+                    </div>
+                </div>
+            </div>
+
+            <div class="member">
+                < img src="member4.jpg" alt="陈海星" loading="lazy">
+                <div class="profile">
+                    <h3>陈海星</h3>
+                    <p class="position">海洋大数据专家</p >
+                    <ul class="expertise">
+                        <li>Python/ML专家</li>
+                        <li>建立生态预测模型</li>
+                        <li>处理PB级海洋数据</li>
+                    </ul>
+                    <div class="social">
+                        < img src="email.svg" alt="邮箱">
+                        < img src="github.svg" alt="代码仓库">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 新闻动态 -->
+        <section class="news">
+            <h2>最新动态</h2>
+            <ul>
+                <li>2024.07.15 成功研发新型海洋清洁无人机</li>
+                <li>2024.06.28 与联合国签署海洋保护协议</li>
+                <li>2024.06.12 发布年度海洋生态白皮书</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>更新日期：<span id="date"></span></p >
+    </footer>
+
+    <script>
+        // 自动更新日期
+        const formatDate = d => `${d.getFullYear()}.${(d.getMonth()+1).toString().padStart(2,'0')}.${d.getDate().toString().padStart(2,'0')}`
+        document.getElementById('date').textContent = formatDate(new Date())
+    </script>
+</body>
+</html>
